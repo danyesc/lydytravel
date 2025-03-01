@@ -1,0 +1,300 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Estilos de la barra lateral */
+.sidebar {
+    width: 250px;
+    background-color: #020202;
+    color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar .logo {
+    max-width: 60%; /* Ajusta este valor para cambiar el tamaño del logo */
+    height: auto;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: color 0.3s;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.sidebar nav ul li a:hover {
+    color: #1da1f2;
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+.sidebar nav ul li a.active {
+    background-color: #1da1f2;
+    color: white;
+}
+
+/* Estilos del contenido principal */
+.feed {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.feed-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.feed-header button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #1da1f2;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.feed-header button:hover {
+    background-color: #0d8add;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-details {
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.post-details h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333333;
+}
+
+.post-details p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+    color: #666666;
+}
+
+/* Estilos de inicio de sesión y registro */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #f3f3f3;
+}
+
+.login-container .logo {
+    max-width: 20%; /* Ajusta este valor para cambiar el tamaño del logo */
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-container form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-group input {
+    width: calc(100% - 12px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.login-container button {
+    background-color: #1da1f2;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+    background-color: #0d8add;
+}
+
+.signup-link {
+    margin-top: 15px;
+    text-align: center;
+    color: #777;
+}
+
+.signup-link a {
+    color: #1da1f2;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos de información del usuario */
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.user-info span {
+    font-size: 1rem;
+    color: #333;
+    margin-left: 10px;
+}
+
+/* Estilos del contenido principal (crear post) */
+.feed {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.create-post {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group input[type="file"] {
+    width: calc(100% - 12px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: #1da1f2;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3
+}
+
+.map-container {
+    width: 100%;
+    height: 400px; /* Ajusta la altura según necesites */
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}

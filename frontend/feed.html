@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LyDy Travel - Feed</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <img src="image.png" alt="LyDy Travel Logo" class="logo">
+            <h2>LyDy Travel</h2>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Buscar</a></li>
+                    <li><a href="#">Explorar</a></li>
+                    <li><a href="#">Mensajes</a></li>
+                    <li><a href="#">Notificaciones</a></li>
+                    <li><a href="post.html">Crear</a></li>
+                    <li><a href="#">Perfil</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="feed">
+            <header class="feed-header">
+                <div class="header-content">
+                    <h1>Inicio</h1>
+                    <a href="post.html"><button id="createPostButton">+ Crear Post</button></a>
+                </div>
+                <div class="user-info">
+                    <span id="username"></span>
+                </div>
+            </header>
+
+            <section class="posts"></section>
+
+            <!-- 📌 Agrega este div para el mapa -->
+            <section class="map-container">
+                <div id="map"></div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+    <!-- 📌 Cargar Google Maps API con Places habilitado -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL2Jbp5Fx7SIEQRRQstcRwzmWI3WVD8d8&libraries=places&callback=initAutocomplete" loading="async"></script>
+</body>
+</html>

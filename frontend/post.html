@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Post</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="feed">
+            <div class="create-post">
+                <form id="createPostForm" action="/api/posts" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="title">Título del Post</label>
+                        <input type="text" id="title" name="title" placeholder="Escribe un título..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Imagen</label>
+                        <input type="file" id="image" name="image" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Ubicación</label>
+                        <input type="text" id="location" name="location" placeholder="Escribe el lugar..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Descripción</label>
+                        <textarea id="description" name="content" rows="5" placeholder="Escribe lo que opinas..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Publicar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      document.getElementById('createPostForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        const token = localStorage.getItem('token'); // Obtener el token almacenado
+        if (!token) {
+            alert("No estás autenticado. Inicia sesión primero.");
+            return;
+        }
+
+        fetch('http://localhost:3000/api/posts', { // Asegúrate de que la URL apunta al backend correcto
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Authorization': `Bearer ${token}` // Incluir el token en la solicitud
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => { throw new Error(err.error || 'Error al crear la publicación') });
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Publicación creada:', data);
+            alert('Publicación creada con éxito!');
+            form.reset();
+            window.location.href = 'feed.html';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert(error.message);
+        });
+    });
+
+      // This function should be globally available when Google Maps API loads
+    window.initAutocomplete = function() {
+        const input = document.getElementById('location'); // Input field for location
+        const autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.setFields(['place_id', 'geometry', 'name']); // Optional: define fields to return
+    }
+    </script>
+
+    <!-- Make sure the script is loaded with the correct callback -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL2Jbp5Fx7SIEQRRQstcRwzmWI3WVD8d8&libraries=places&callback=initAutocomplete" async defer></script>
+</body>
+</html>
